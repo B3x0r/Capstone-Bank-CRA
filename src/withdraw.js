@@ -1,16 +1,13 @@
 import React from 'react';
-import { UserProvider, UserContext } from './context';
-import { Button, Card, Form } from "react-bootstrap";
+import { UserContext, Card } from './context';
 
 //withdraw button event handler
 function Withdraw(){
-  console.log(UserProvider);
-  console.log(UserContext);
-  const [show, setShow]           = React.useState(true);
-  const [status, setStatus]       = React.useState('');
-  const [ready, setReady]         = React.useState(false);
-  const [subtract, setSubtract]   = React.useState(0);
-  const {balance, updateBalance}  = React.useContext(UserProvider);  
+  const [show, setShow]         = React.useState(true);
+  const [status, setStatus]     = React.useState('');
+  const [ready, setReady]   = React.useState(false);
+  const [subtract, setSubtract] = React.useState(0);
+  const {balance, updateBalance} = React.useContext(UserContext);  
 
   function onChange(e){
     if (e.currentTarget.value.length===0){
@@ -48,32 +45,24 @@ function Withdraw(){
 
   //input type="number" would be better for deposit, but then, you will not get a NaN error
   return (
-    <Card style={{ width: '18rem'}}>
-      <Card.Body>
-          <Card.Title>Balance</Card.Title>
-          <Card.Text>{"$" + parseFloat(balance).toFixed(2)}</Card.Text>
-      </Card.Body>
-    <Form>
-            <Form.Group className="mb-3" controlId="formBasicWithdraw">
-        <Form.Label>Withdraw</Form.Label>
-        <Form.Control type="number" placeholder="Amount to Withdraw" />
-      </Form.Group>
-
-      {show ? 
-      <Button variant="primary"
-        input type="submit"
-        className="form-control"
-        id="subtract"
-        placeholder="Amount to Withdraw"
-        onChange={onChange}        
-        disabled={!ready}
-        onClick={handleCreate}>Withdraw
-      </Button>
-      :
-      <h5>Success</h5>
-      } 
-    </Form>   
-  </Card>  
+    <Card
+      bgcolor="info"
+      header="Withdraw"
+      status={status}
+      title="Balance"
+      text={"$" + parseFloat(balance).toFixed(2)}
+      body={show ? (  
+              <>
+              Withdraw<br/>
+              <input type="text" className="form-control" id="subtract" placeholder="Amount to Withdraw" onChange={onChange} /><br/>
+              <button type="submit" disabled={!ready} className="btn btn-light" onClick={handleCreate}>Withdraw</button>
+              </>
+            ):(
+              <>
+              <h5>Success</h5>
+              </>
+            )}
+    />
   )
 }
 

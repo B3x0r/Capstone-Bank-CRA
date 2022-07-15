@@ -1,8 +1,7 @@
-import React from "react";
-import { UserProvider, UserContext } from './context';
-import { Card } from "react-bootstrap";
+import React from 'react';
+import { UserContext, Card } from './context';
 
-function CreateAccount(props) {
+function CreateAccount() {
   const [show, setShow] = React.useState(true);
   const [status, setStatus] = React.useState("");
   const [name, setName] = React.useState("");
@@ -55,7 +54,7 @@ function CreateAccount(props) {
               id="name"
               placeholder="Enter name"
               value={name}
-              onchange="(e) => setName(e.currentTarget.value)"
+              onChange={(e) => setName(e.currentTarget.value)}
             />
             <br />
             Email address
@@ -66,7 +65,7 @@ function CreateAccount(props) {
               id="email"
               placeholder="Enter email"
               value={email}
-              onChange="(e) => setEmail(e.currentTarget.value)"
+              onChange={(e) => setEmail(e.curentTarget.value)}
             />
             <br />
             Password
@@ -77,7 +76,7 @@ function CreateAccount(props) {
               id="password"
               placeholder="Enter password"
               value={password}
-              onChange="(e) => setPassword(e.currentTarget.value)"
+              onChange={(e) => setPassword(e.currentTarget.value)}
             />
             <br />
             <button
@@ -92,11 +91,7 @@ function CreateAccount(props) {
         ) : (
           <>
             <h5>Success</h5>
-            <button
-              type="submit"
-              className="btn btn-light"
-              onClick={clearForm}
-            >
+            <button type="submit" className="btn btn-light" onClick={clearForm}>
               Add another account
             </button>
           </>
@@ -105,5 +100,4 @@ function CreateAccount(props) {
     />
   );
 }
-
 export default CreateAccount;

@@ -2,50 +2,37 @@
   text-align: center;
 }
 
-:root{
-  background: rgb(239,222,205);
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
 }
 
-/* navbar color */
-.navbar {
-  background-color: rgb(125,116,107);
-  display: flex;
-  flex-direction: row;
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
 }
 
-/* mouse over link navbar navbar-expand-lg navbar-light info*/
-.navbar a:hover {
-  background-color: rgb(98,146,179);
-  color: white !important;
-}
-
-.navbar a.active {
-  background-color: rgb(73,109,133);
-}
-
-.tooltip .tooltiptext {
-  width: 120px;
-  top: 100%;
-  left: 50%;
-  margin-left: -60px;
-  /* Use half of the width (120/2 = 60), to center the tooltip */
-}
-
-body {
-  background-color: var(--background-color) !important;
-  font-family: Helvetica, sans-serif;
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
 }
 
-.caption1 {
-  font-style: italic;
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
   }
-
-.caption3 {
-  color: rgb(128, 143, 133);
-}
-
-.h1 {
-  color: rgb(216, 221, 239); 
+  to {
+    transform: rotate(360deg);
+  }
 }

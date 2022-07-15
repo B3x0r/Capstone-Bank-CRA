@@ -1,25 +1,16 @@
-import React from "react";
-import { Card } from "react-bootstrap";
+import { Card } from './context';
 
-function Home() {
+function Home(){
   return (
-    <Card style={{ width: "18rem" }}>
-      <Card.Img
-        variant="top"
-        src="dmitry-demidko-eBWzFKahEaU-unsplash.jpg"
-        body={
-          <img
-            src="dmitry-demidko-eBWzFKahEaU-unsplash.jpg"
-            alt="money by Dmitry Demidko"
-          />
-        }
-      />
-      <Card.Body>
-        <Card.Title>Welcome to Capstone Bank</Card.Title>
-        <Card.Text>The best way to manage your imaginary funds</Card.Text>
-      </Card.Body>
-    </Card>
-  );
+    <Card
+      bgcolor="info"
+      txtcolor="black"
+      header="Your Town Bank"
+      title="Welcome to Your Town Bank"
+      text="You can move around using the navigation bar."
+      body={(<img src="dmitry-demidko-eBWzFKahEaU-unsplash.jpg" className="img-fluid" alt="Image of money by Dmitry Demidko"/>)}
+    />    
+  );  
 }
 
 export default Home;

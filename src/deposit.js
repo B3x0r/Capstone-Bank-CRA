@@ -1,6 +1,5 @@
 import React from 'react';
-import { UserProvider, UserContext } from './context';
-import { Card } from "react-bootstrap";
+import { UserContext, Card } from './context';
 
 //deposit button event handler
 function Deposit(){

@@ -1,5 +1,4 @@
 import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import { HashRouter, Routes, Route } from "react-router-dom";
 import Home from './home';
@@ -8,7 +7,7 @@ import Deposit from './deposit';
 import Withdraw from './withdraw';
 import AllData from './alldata';
 import NavBar from './navbar';
-import { UserProvider, UserContext } from './context';
+import { UserProvider } from './context';
 
 function App() {
   return (
