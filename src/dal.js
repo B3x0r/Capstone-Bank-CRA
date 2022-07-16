@@ -4,22 +4,11 @@ let db = null;
 
 //connect to mongo
 MongoClient.connect(url, {}, function(err, client) {
-  console.log("DAL connected successfully to db server");
+  console.log("Capstone DAL connected successfully to db server");
   console.log(err);
   //connect to my project database
-  db = client.db('bank_capstone');
+  db = client.db('bank-capstone-DAL');
 });
-
-//create user account
-function create(name, email, password) {
-  return new Promise((resolve, reject) => {
-    const collection = db.collection('users');
-    const doc = {name, email, password, balance: 0};
-    collection.insertOne(doc, {w:1}, function(err, result) {
-      err ? reject(err) : resolve(doc);
-    });
-  })
-}
 
 //all users
 function all(){
@@ -33,4 +22,4 @@ function all(){
   })
 }
 
-module.exports = {create, all};
+module.exports = {all};

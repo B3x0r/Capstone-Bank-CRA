@@ -7,8 +7,8 @@ function Withdraw(){
   const [status, setStatus]     = React.useState('');
   const [ready, setReady]   = React.useState(false);
   const [subtract, setSubtract] = React.useState(0);
-  const {balance, updateBalance} = React.useContext(UserContext);  
-
+  const {balance, updateBalance} = React.useContext(UserContext);
+  
   function onChange(e){
     if (e.currentTarget.value.length===0){
       setReady(false)

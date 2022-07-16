@@ -65,7 +65,7 @@ function CreateAccount() {
               id="email"
               placeholder="Enter email"
               value={email}
-              onChange={(e) => setEmail(e.curentTarget.value)}
+              onChange={(e) => setEmail(e.currentTarget.value)}
             />
             <br />
             Password
