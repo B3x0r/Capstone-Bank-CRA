@@ -1,9 +1,12 @@
 import React from 'react';
+import { apiCreateAccount } from './dal';
+
 
 const UserContext = React.createContext();
 
 const UserProvider = ({ children }) => {
   const [user, setUser] = React.useState({});
+  const [isLoggedin, setIsLoggedin] = React.useState(false);
   const [balance, setBalance] = React.useState(0);
   const [userArray, setUserArray] = React.useState([]);
 
@@ -16,7 +19,12 @@ const UserProvider = ({ children }) => {
       }
     setUser(newUser);
     pushUser(newUser);
+    apiCreateAccount(newUser);
   };
+
+  const setLogin = (email, password) =>{
+    
+  }
 
   const pushUser = (user) => {
     userArray.push(user)
@@ -27,7 +35,7 @@ const UserProvider = ({ children }) => {
     setBalance(balance)
   }
   return (
-    <UserContext.Provider value={{ user, createAccount, updateBalance, balance, userArray}}>
+    <UserContext.Provider value={{ user, isLoggedin, setIsLoggedin, createAccount, updateBalance, balance, userArray}}>
       {children}
     </UserContext.Provider>
   );

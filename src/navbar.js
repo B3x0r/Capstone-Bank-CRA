@@ -10,6 +10,8 @@ function NavBar() {
       setTab("deposit/")
     } else if(window.location.hash.indexOf("withdraw") > -1) {
       setTab("withdraw/")
+    } else if(window.location.hash.indexOf("login") > -1) {
+      setTab("login/")
     } else if(window.location.hash.indexOf("alldata") > -1) {
       setTab("alldata/")
     }
@@ -35,7 +37,7 @@ function NavBar() {
           href="#"
           onClick={() => setTab("home")}
         >
-          Your Town Bank
+          Capstone Bank
         </a>
         <button
           className="navbar-toggler"
@@ -52,13 +54,25 @@ function NavBar() {
 
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
+          <li className="nav-item ">
+              <a
+                className={"nav-link " + activePage("Login/")}
+                onClick={() => setTab("Login/")}
+                data-toggle="tooltip"
+                data-placement="bottom"
+                title="Login here"
+                href="#/Login/"
+              >
+                Login<span className="tooltiptext"></span>
+              </a>
+            </li>
             <li className="nav-item ">
               <a
                 className={"nav-link " + activePage("CreateAccount/")}
                 onClick={() => setTab("CreateAccount/")}
                 data-toggle="tooltip"
                 data-placement="bottom"
-                title="Enter your info here"
+                title="Create account here"
                 href="#/CreateAccount/"
               >
                 Create Account<span className="tooltiptext"></span>
