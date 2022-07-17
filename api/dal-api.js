@@ -29,13 +29,15 @@ function verifyUser({ email, password }) {
         email,
         password,
       })
+      .toArray()
       .then((result) => {
-        if (result.toArray().length == 1) {
-          resolve(result.toArray()[0]);
+        if (result.length == 1) {
+          resolve(result[0]);
         } else {
           reject();
         }
       })
+      .catch(reject)
   );
 }
 //all users

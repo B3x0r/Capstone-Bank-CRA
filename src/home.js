@@ -1,4 +1,5 @@
 import { Card } from './context';
+import React from 'react';
 
 function Home(){
   return (

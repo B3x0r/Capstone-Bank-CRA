@@ -22,10 +22,6 @@ app.get("/account/login/:email/:password/", function (req, res) {
     .catch(() => {
       res.send({ success: false });
     });
-  res.send({
-    email: req.params.email,
-    password: req.params.password,
-  });
 });
 
 // all accounts

@@ -1,6 +1,5 @@
 import React from 'react';
-import { apiCreateAccount } from './dal';
-
+import { apiLogin, apiCreateAccount, apiDeposit, apiWithdraw, apiAllData, apiGetAccount } from './dal';
 
 const UserContext = React.createContext();
 
@@ -23,7 +22,7 @@ const UserProvider = ({ children }) => {
   };
 
   const setLogin = (email, password) =>{
-    
+    apiLogin ({ email, password})
   }
 
   const pushUser = (user) => {
@@ -35,7 +34,7 @@ const UserProvider = ({ children }) => {
     setBalance(balance)
   }
   return (
-    <UserContext.Provider value={{ user, isLoggedin, setIsLoggedin, createAccount, updateBalance, balance, userArray}}>
+    <UserContext.Provider value={{ user, isLoggedin, setIsLoggedin, setLogin, createAccount, updateBalance, balance, userArray}}>
       {children}
     </UserContext.Provider>
   );
