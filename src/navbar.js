@@ -4,14 +4,14 @@ function NavBar() {
   const [navTab, setTab] = React.useState("home");
 
   React.useEffect(() => {
-    if (window.location.hash.indexOf("Create") > -1) {
+    if (window.location.hash.indexOf("Login") > -1) {
+      setTab("Login/")
+    } else if(window.location.hash.indexOf("Create") > -1) {
       setTab("CreateAccount/")
     } else if(window.location.hash.indexOf("deposit") > -1) {
       setTab("deposit/")
     } else if(window.location.hash.indexOf("withdraw") > -1) {
       setTab("withdraw/")
-    } else if(window.location.hash.indexOf("login") > -1) {
-      setTab("login/")
     } else if(window.location.hash.indexOf("alldata") > -1) {
       setTab("alldata/")
     }

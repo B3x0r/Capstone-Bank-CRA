@@ -21,15 +21,19 @@ const UserProvider = ({ children }) => {
     apiCreateAccount(newUser);
   };
 
-  const validateLogin = (email, password) =>{
-    apiLogin ({ email, password})
+  const validateLogin = ({ email, password }) =>{
+    return apiLogin ({ email, password }).
+      then(async result => {
+        const user = await result.json();
+        if (user.s)
+        setUser(user);
+      });
   }
 
   const pushUser = (user) => {
     userArray.push(user)
     setUserArray(userArray)
   }
-
   const updateBalance = (balance) => {
     setBalance(balance)
   }

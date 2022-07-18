@@ -1,32 +1,21 @@
-const apiHost = "localhost:3000"
+const apiHost = "http://127.0.0.1:3000"
 
 const apiLogin = ({email, password}) => {
-  fetch(`${apiHost}/account/login/${email}/${password}`).
-  then(rtn=>console.log(rtn)).
-  catch(err=>console.log(err));
+  return fetch(`${apiHost}/account/login/${email}/${password}`);
 };
 const apiCreateAccount = ({name, email, password}) => {
-  fetch(`${apiHost}/account/create/${name}/${email}/${password}`).
-    then(rtn=>console.log(rtn)).
-    catch(err=>console.log(err));
+  return fetch(`${apiHost}/account/create/${name}/${email}/${password}`);
 };
 const apiBalance = ({email, balance}) => {
-  fetch(`${apiHost}/account/balance/${email}/${balance}`).
-  then(rtn=>console.log(rtn)).
-  catch(err=>console.log(err));
+  return fetch(`${apiHost}/account/balance/${email}/${balance}`);
 };
-
 const apiAllData = ({UserContext}) => {
-  fetch(`${apiHost}/account/alldata/${UserContext}`).
-  then(rtn=>console.log(rtn)).
-  catch(err=>console.log(err));
+  return fetch(`${apiHost}/account/alldata/${UserContext}`);
 };
-const apiGetAccount = () => {};
 
 export {
   apiLogin,
   apiCreateAccount,
   apiBalance,
-  apiAllData,
-  apiGetAccount
+  apiAllData
 };

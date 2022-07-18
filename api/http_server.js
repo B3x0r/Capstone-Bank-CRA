@@ -1,7 +1,8 @@
 var express = require("express");
 var app = express();
-//var cors = require ('cors');
+var cors = require ('cors');
 var dal = require("./dal-api.js");
+//app.use(cors());
 
 //create user account
 app.get("/account/create/:name/:email/:password", function (req, res) {
