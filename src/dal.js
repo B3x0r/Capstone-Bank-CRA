@@ -10,16 +10,12 @@ const apiCreateAccount = ({name, email, password}) => {
     then(rtn=>console.log(rtn)).
     catch(err=>console.log(err));
 };
-const apiDeposit = ({name, email, balance}) => {
-  fetch(`${apiHost}/account/deposit/${name}/${email}/${balance}`).
+const apiBalance = ({email, balance}) => {
+  fetch(`${apiHost}/account/balance/${email}/${balance}`).
   then(rtn=>console.log(rtn)).
   catch(err=>console.log(err));
 };
-const apiWithdraw = ({name, email, balance}) => {
-  fetch(`${apiHost}/account/withdraw/${name}/${email}/${balance}`).
-  then(rtn=>console.log(rtn)).
-  catch(err=>console.log(err));
-};
+
 const apiAllData = ({UserContext}) => {
   fetch(`${apiHost}/account/alldata/${UserContext}`).
   then(rtn=>console.log(rtn)).
@@ -30,8 +26,7 @@ const apiGetAccount = () => {};
 export {
   apiLogin,
   apiCreateAccount,
-  apiDeposit,
-  apiWithdraw,
+  apiBalance,
   apiAllData,
   apiGetAccount
 };

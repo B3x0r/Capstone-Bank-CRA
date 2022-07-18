@@ -1,71 +1,83 @@
 import React from 'react';
+import { validate } from './utility';
 import { UserContext, Card } from './context';
 
 function Login() {
-const [name, setName] = React.useState('');
-const [email, setEmail] = React.useState('');
-const [password, setPassword] = React.useState('');
-const [isLoggedin, setIsLoggedin] = React.useContext(UserContext);
+	const [email, setEmail] = React.useState('');
+	const [password, setPassword] = React.useState('');
+	const {isLoggedin, setIsLoggedin, validateLogin} = React.useContext(UserContext);
 
-const Login = (e) => {
-	e.preventDefault();
-	console.log(name, email, password);
-	const userData = {
-	name,
-	email,
-	password,
+
+	const handleLogin = () => {
+		if (!validate(email, "email")) return;
+		if (!validate(password, "password")) return;
+
+		validateLogin ({email, password}).
+			then(() => {
+				setIsLoggedin(true)
+				setEmail('');
+				setPassword('');
+			}).
+			catch(() => setIsLoggedin(false));
 	};
-	localStorage.setItem('token-info', JSON.stringify(userData));
-	setIsLoggedin(true);
-	setName('');
-	setEmail('');
-	setPassword('');
-};
 
-const logout = () => {
-	localStorage.removeItem('token-info');
-	setIsLoggedin(false);
-};
+	const handleLogout = () => {
+		setIsLoggedin(false);
+	};
 
-return (
-	<>
-	<div style={{ textAlign: 'center' }}>
-		<h1>Login</h1>
-		{!isLoggedin ? (
-		<>
-			<form action="">
-			<input
-				type="text"
-				onChange={(e) => setName(e.target.value)}
-				value={name}
-				placeholder="Name"
-			/>
-			<input
-				type="email"
-				onChange={(e) => setEmail(e.target.value)}
-				value={email}
-				placeholder="Email"
-			/>
-			<input
-				type="password"
-				onChange={(e) => setPassword(e.target.value)}
-				value={password}
-				placeholder="Password"
-			/>
-			<button type="submit" onClick={Login}>
-				GO
-			</button>
-			</form>
-		</>
-		) : (
-		<>
-			<h1>User is logged in</h1>
-			<button onClickCapture={logout}>logout user</button>
-		</>
-		)}
-	</div>
-	</>
-);
+	return (
+		<Card
+			bgcolor="info"
+			header="Create Account"
+			body={
+				!isLoggedin ? (
+					<>
+						Login
+						<br />
+						Email address
+						<br />
+						<input
+							type="email"
+							className="form-control"
+							id="email"
+							placeholder="Enter email"
+							value={email}
+							onChange={(e) => setEmail(e.target.value)}
+						/>
+						<br />
+						Password
+						<br />
+						<input
+							type="password"
+							className="form-control"
+							id="password"
+							placeholder="Enter password"
+							value={password}
+							onChange={(e) => setPassword(e.currentTarget.value)}
+						/>
+						<br />
+						<button
+							type="submit"
+							className="btn btn-light"
+							disabled={!email.length && !password.length}
+							onClick={handleLogin}
+						>
+							Login
+						</button>
+					</>
+				) : (
+					<>
+						<h5>User is logged in</h5>
+						<button type="submit"
+							className="btn btn-light"
+							onClick={handleLogout}>
+							Logout User
+						</button>
+					</>
+				)
+			}
+		/>
+	);
 }
 
 export default Login;

@@ -21,7 +21,7 @@ const UserProvider = ({ children }) => {
     apiCreateAccount(newUser);
   };
 
-  const setLogin = (email, password) =>{
+  const validateLogin = (email, password) =>{
     apiLogin ({ email, password})
   }
 
@@ -34,7 +34,7 @@ const UserProvider = ({ children }) => {
     setBalance(balance)
   }
   return (
-    <UserContext.Provider value={{ user, isLoggedin, setIsLoggedin, setLogin, createAccount, updateBalance, balance, userArray}}>
+    <UserContext.Provider value={{ user, isLoggedin, setIsLoggedin, validateLogin, createAccount, updateBalance, balance, userArray}}>
       {children}
     </UserContext.Provider>
   );
