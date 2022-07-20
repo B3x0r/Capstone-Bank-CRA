@@ -1,15 +1,19 @@
 var express = require("express");
 var app = express();
-var cors = require ('cors');
+var cors = require("cors");
 var dal = require("./dal-api.js");
-//app.use(cors());
+app.use(cors({ origin: process.env.PORT || "http://localhost:8080" }));
 
 //create user account
 app.get("/account/create/:name/:email/:password", function (req, res) {
   //else create user
-  dal.createUser(req.params).then((result) => {
-    console.log(result);
-    res.send(result);
+  dal
+    .createUser(req.params)
+    .then((result) => {
+      res.send(result);
+    })
+    .catch((err) => {
+    res.send({ success: false })
   });
 });
 
@@ -27,9 +31,13 @@ app.get("/account/login/:email/:password/", function (req, res) {
 
 // all accounts
 app.get("/accounts/all", function (req, res) {
-  dal.all().then((docs) => {
-    console.log(docs);
+  dal
+  .all()
+  .then((docs) => {
     res.send(docs);
+  })
+  .catch(() => {
+    res.send({ success: false });
   });
 });
 

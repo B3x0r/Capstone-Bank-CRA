@@ -13,12 +13,16 @@ MongoClient.connect(url, {}, function (err, client) {
 //create account
 function createUser({ name, email, password }) {
   return new Promise((resolve, reject) =>
-    db.collection("users").insertOne({
+    db
+    .collection("users")
+    .insertOne({
       _id: email,
       name,
       email,
       password,
     })
+    .then(result => resolve(result))
+    .catch(err => reject(err))
   );
 }
 function verifyUser({ email, password }) {
@@ -40,16 +44,24 @@ function verifyUser({ email, password }) {
       .catch(reject)
   );
 }
-//all users
+// //balance
+// function updateBalance
+//   return new Promise((resolve, reject) =>{
+
+// })
+
+//all users data
 function all() {
   return new Promise((resolve, reject) => {
-    const customers = db
+    db
       .collection("users")
       .find({})
-      .toArray(function (err, docs) {
-        err ? reject(err) : resolve(docs);
-      });
-  });
-}
+      .toArray()
+      .then((result) => {
+          resolve(result);
+      })
+      .catch(reject)
+    })
+};
 
 module.exports = { createUser, verifyUser, all };

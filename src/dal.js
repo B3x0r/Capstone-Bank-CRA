@@ -1,4 +1,4 @@
-const apiHost = "http://127.0.0.1:3000"
+const apiHost = "http://localhost:3000";
 
 const apiLogin = ({email, password}) => {
   return fetch(`${apiHost}/account/login/${email}/${password}`);
