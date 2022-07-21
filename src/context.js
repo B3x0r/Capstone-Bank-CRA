@@ -8,7 +8,7 @@ import {
 
 const UserContext = React.createContext();
 
-const UserProvider = () => {
+const UserProvider = ( {children} ) => {
   const [user, setUser] = React.useState({});
   const [isLoggedin, setIsLoggedin] = React.useState(false);
   const [balance, setBalance] = React.useState(0);
@@ -73,6 +73,7 @@ const UserProvider = () => {
         userArray,
       }}
     >
+    {children}
     </UserContext.Provider>
   );
 };

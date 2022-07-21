@@ -42,7 +42,7 @@ app.get("/account/login/:email/:balance/", function (req, res) {
 });
 
 // all accounts
-app.get("/accounts/all", function (req, res) {
+app.get("/account/all", function (req, res) {
   dal
   .all()
   .then((docs) => {
