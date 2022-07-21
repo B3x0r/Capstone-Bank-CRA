@@ -1,7 +1,9 @@
 import React from 'react';
+import { UserContext } from './context';
 
 function NavBar() {
   const [navTab, setTab] = React.useState("home");
+  const { isLoggedin, user } = React.useContext(UserContext);
 
   React.useEffect(() => {
     if (window.location.hash.indexOf("Login") > -1) {
@@ -54,6 +56,8 @@ function NavBar() {
 
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
+            {!isLoggedin ?
+            <>
           <li className="nav-item ">
               <a
                 className={"nav-link " + activePage("Login/")}
@@ -78,6 +82,9 @@ function NavBar() {
                 Create Account<span className="tooltiptext"></span>
               </a>
             </li>
+            </>
+            :
+            <>
             <li className="nav-item">
               <a
                 className={"nav-link " + activePage("deposit/")}
@@ -114,6 +121,11 @@ function NavBar() {
                 AllData<span className="tooltiptext"></span>
               </a>
             </li>
+            <span className="navbar-text">
+              Welcome {user.name}!
+            </span>
+            </>
+            }
           </ul>
         </div>
       </nav>

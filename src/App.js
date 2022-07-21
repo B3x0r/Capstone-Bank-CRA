@@ -13,8 +13,8 @@ import { UserProvider } from './context';
 function App() {
   return (
     <HashRouter>
-      <NavBar/>
       <UserProvider>
+      <NavBar/>
         <div className="container" style={{padding: "20px"}}>
           <Routes>
             <Route path="/" element={<Home />} />

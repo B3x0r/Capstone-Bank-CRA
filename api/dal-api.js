@@ -77,4 +77,4 @@ function all() {
     })
 };
 
-module.exports = { createUser, verifyUser, all };
+module.exports = { createUser, verifyUser, updateBalance, all };
