@@ -20,6 +20,7 @@ function createUser({ name, email, password }) {
       name,
       email,
       password,
+      balance: 0,
     })
     .then(result => resolve(result))
     .catch(err => reject(err))
@@ -44,11 +45,23 @@ function verifyUser({ email, password }) {
       .catch(reject)
   );
 }
-// //balance
-// function updateBalance
-//   return new Promise((resolve, reject) =>{
-
-// })
+//balance
+function updateBalance (email, balance) {
+  return new Promise((resolve, reject) =>{
+    db
+      inventory.updateOne(
+        { email: email },
+        {
+          $set: {balance: balance}
+        }
+      )
+    .then((result) => {
+        resolve(result);
+      }
+    )
+      .catch(reject)   
+})
+}
 
 //all users data
 function all() {

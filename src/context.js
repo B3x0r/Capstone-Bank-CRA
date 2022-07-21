@@ -8,7 +8,7 @@ import {
 
 const UserContext = React.createContext();
 
-const UserProvider = ({ children }) => {
+const UserProvider = () => {
   const [user, setUser] = React.useState({});
   const [isLoggedin, setIsLoggedin] = React.useState(false);
   const [balance, setBalance] = React.useState(0);
@@ -39,14 +39,26 @@ const UserProvider = ({ children }) => {
       })
       .catch(() => setIsLoggedin(false));
   };
-
   const pushUser = (user) => {
     userArray.push(user);
     setUserArray(userArray);
   };
   const updateBalance = (balance) => {
-    setBalance(balance);
-  };
+    return apiBalance({ email: user.email, balance})
+    .then(() => {
+      setBalance(balance);
+      }
+    )
+    .catch(err => console.error(err))      
+    };
+    const getAllData = () => {
+      return apiAllData()
+      .then(async result => {
+        const user = await result.json();
+        setUserArray(user)
+      })
+      .catch(err => console.error(err))
+    };
   return (
     <UserContext.Provider
       value={{
@@ -56,11 +68,11 @@ const UserProvider = ({ children }) => {
         validateLogin,
         createAccount,
         updateBalance,
+        getAllData,
         balance,
         userArray,
       }}
     >
-      {children}
     </UserContext.Provider>
   );
 };

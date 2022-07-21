@@ -40,8 +40,8 @@ function Withdraw(){
     return false;
     }
     updateBalance(parseFloat(balance) - parseFloat(subtract));
-    setShow(false);
-  }    
+    setShow(false);  
+  }  
 
   //input type="number" would be better for deposit, but then, you will not get a NaN error
   return (

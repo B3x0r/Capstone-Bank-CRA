@@ -3,10 +3,13 @@ import { UserContext } from './context';
 
 function AllData() {
   const {
-    user: { name, email, password },
-    balance,
     userArray,
+    getAllData,
   } = React.useContext(UserContext);
+
+  React.useEffect(() => {
+    getAllData()
+  }, []);
 
   return (
     <div className="container">

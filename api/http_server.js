@@ -29,6 +29,18 @@ app.get("/account/login/:email/:password/", function (req, res) {
     });
 });
 
+//balance
+app.get("/account/login/:email/:balance/", function (req, res) {
+  dal
+    .updateBalance(req.params)
+    .then((result) => {
+      res.send(result);
+    })
+    .catch(() => {
+      res.send({ success: false });
+    });
+});
+
 // all accounts
 app.get("/accounts/all", function (req, res) {
   dal

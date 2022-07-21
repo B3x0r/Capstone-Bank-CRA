@@ -9,8 +9,8 @@ const apiCreateAccount = ({name, email, password}) => {
 const apiBalance = ({email, balance}) => {
   return fetch(`${apiHost}/account/balance/${email}/${balance}`);
 };
-const apiAllData = ({UserContext}) => {
-  return fetch(`${apiHost}/account/alldata/${UserContext}`);
+const apiAllData = () => {
+  return fetch(`${apiHost}/account/all`);
 };
 
 export {
