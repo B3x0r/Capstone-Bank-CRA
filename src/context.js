@@ -32,6 +32,7 @@ const UserProvider = ( {children} ) => {
         const user = await result.json();
         if (user.success !== false) {
           setUser(user);
+          setBalance(user.balance)
           setIsLoggedin(true);
         } else {
           setIsLoggedin(false);

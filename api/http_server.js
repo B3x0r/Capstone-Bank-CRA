@@ -30,7 +30,7 @@ app.get("/account/login/:email/:password/", function (req, res) {
 });
 
 //balance
-app.get("/account/login/:email/:balance/", function (req, res) {
+app.get("/account/balance/:email/:balance/", function (req, res) {
   dal
     .updateBalance(req.params)
     .then((result) => {

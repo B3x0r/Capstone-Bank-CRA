@@ -46,10 +46,10 @@ function verifyUser({ email, password }) {
   );
 }
 //balance
-function updateBalance (email, balance) {
+function updateBalance ({email, balance}) {
   return new Promise((resolve, reject) =>{
-    db
-      inventory.updateOne(
+    db.
+      collection("users").updateOne(
         { email: email },
         {
           $set: {balance: balance}
