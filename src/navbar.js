@@ -16,6 +16,8 @@ function NavBar() {
       setTab("withdraw/")
     } else if(window.location.hash.indexOf("alldata") > -1) {
       setTab("alldata/")
+    } else if(window.location.hash.indexOf("Logout") > -1) {
+      setTab("Logout/")
     }
   })
   
@@ -64,7 +66,7 @@ function NavBar() {
                 onClick={() => setTab("Login/")}
                 data-toggle="tooltip"
                 data-placement="bottom"
-                title="Login here"
+                title="Log in here"
                 href="#/Login/"
               >
                 Login<span className="tooltiptext"></span>
@@ -119,6 +121,19 @@ function NavBar() {
                 href="#/alldata/"
               >
                 AllData<span className="tooltiptext"></span>
+              </a>
+            </li>
+            
+          <li className="nav-item ">
+              <a
+                className={"nav-link " + activePage("Logout/")}
+                onClick={() => setTab("Logout/")}
+                data-toggle="tooltip"
+                data-placement="bottom"
+                title="Log Out here"
+                href="#/Logout/"
+              >
+                Log Out<span className="tooltiptext"></span>
               </a>
             </li>
             <span className="navbar-text">

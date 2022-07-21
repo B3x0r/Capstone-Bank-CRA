@@ -6,6 +6,7 @@ import Login from './login';
 import CreateAccount from './createaccount';
 import Deposit from './deposit';
 import Withdraw from './withdraw';
+import Logout from './logout';
 import AllData from './alldata';
 import NavBar from './navbar';
 import { UserProvider } from './context';
@@ -22,6 +23,7 @@ function App() {
             <Route path="/CreateAccount/" element={<CreateAccount />} />
             <Route path="/deposit/" element={<Deposit />} />
             <Route path="/withdraw/" element={<Withdraw />} />
+            <Route path="/logout/" element={<Logout />} />
             <Route path="/alldata/" element={<AllData />} />
           </Routes>
         </div>
