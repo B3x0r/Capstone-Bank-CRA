@@ -4,11 +4,11 @@ import React from 'react';
 function Home(){
   return (
     <Card
-      bgcolor="info"
-      txtcolor="black"
-      header="Your Town Bank"
+      bgcolor="dark"
+      txtcolor="white"
+      header="Capstone Bank"
       title="Welcome to Your Town Bank"
-      text="You can move around using the navigation bar."
+      text="A fun way to manage imaginary money."
       body={(<img src="dmitry-demidko-eBWzFKahEaU-unsplash.jpg" className="img-fluid" alt="Image of money by Dmitry Demidko"/>)}
     />    
   );  

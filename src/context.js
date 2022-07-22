@@ -30,6 +30,7 @@ const UserProvider = ( {children} ) => {
     return apiLogin({ email, password })
       .then(async (result) => {
         const user = await result.json();
+        console.log(user);
         if (user.success !== false) {
           setUser(user);
           setBalance(user.balance)
@@ -90,10 +91,10 @@ function Card(props) {
     <div className={classes()} style={{ maxWidth: "18rem" }}>
       <div className="card-header">{props.header}</div>
       <div className="card-body">
-        {props.title && <h5 className="card-title">{props.title}</h5>}
+        {props.title && <h4 className="card-title">{props.title}</h4>}
         {props.text && <p className="card-text">{props.text}</p>}
         {props.body}
-        {props.status && <div id="createStatus">{props.status}</div>}
+        {props.status && <div id='createStatus'>{props.status}</div>}
       </div>
     </div>
   );

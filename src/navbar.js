@@ -32,7 +32,7 @@ function NavBar() {
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light info">
+      <nav className="navbar navbar-expand-lg navbar-light info" style={{padding: "20px"}}>
         <a
           className={"navbar-brand " + activePage("home")}
           data-toggle="tooltip"
@@ -122,8 +122,7 @@ function NavBar() {
               >
                 AllData<span className="tooltiptext"></span>
               </a>
-            </li>
-            
+            </li>            
           <li className="nav-item ">
               <a
                 className={"nav-link " + activePage("Logout/")}
@@ -136,13 +135,23 @@ function NavBar() {
                 Log Out<span className="tooltiptext"></span>
               </a>
             </li>
-            <span className="navbar-text">
-              Welcome {user.name}!
-            </span>
             </>
             }
           </ul>
         </div>
+            {isLoggedin ?
+              <>
+                <span className="navbar-text">
+                  Welcome {user.name}!
+                </span>
+              </>
+              :
+              <>
+                <span className="navbar-text">
+                  Welcome Visitor!
+                </span>
+              </>
+            }
       </nav>
     </>
   );

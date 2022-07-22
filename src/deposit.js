@@ -42,16 +42,30 @@ function Deposit(){
 //input type="number" would be better for deposit, but then, you will not get a NaN error
   return (
     <Card
-      bgcolor="info"
+      bgcolor="dark"
       header="Deposit"
       status={status}
       title="Balance"
       text={"$" + parseFloat(balance).toFixed(2)}
       body={show ? (  
               <> 
-              Deposit<br/>
-              <input type="text" className="form-control" id="add" placeholder="Amount to Deposit"  onChange={onChange} /><br/>
-              <button type="submit" disabled={!ready} className="btn btn-light" onClick={handleCreate}>Deposit</button>
+              <h5>Deposit</h5>
+              <br/>
+              <form>
+              <input type="text"
+                className="form-control"
+                id="add" placeholder="Amount to Deposit"
+                onChange={onChange}
+              />
+              </form>
+              <br/>
+              <button type="submit"
+              disabled={!ready}
+              className="btn btn-light"
+              onClick={handleCreate}
+              >
+                Deposit
+              </button>
               </>
             ):(
               <>

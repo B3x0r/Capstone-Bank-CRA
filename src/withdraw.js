@@ -46,15 +46,23 @@ function Withdraw(){
   //input type="number" would be better for deposit, but then, you will not get a NaN error
   return (
     <Card
-      bgcolor="info"
+      bgcolor="dark"
       header="Withdraw"
       status={status}
       title="Balance"
       text={"$" + parseFloat(balance).toFixed(2)}
       body={show ? (  
               <>
-              Withdraw<br/>
-              <input type="text" className="form-control" id="subtract" placeholder="Amount to Withdraw" onChange={onChange} /><br/>
+              <h5>Withdraw</h5>
+              <br/>
+              <form>
+                <input type="text"
+                className="form-control"
+                id="subtract"
+                placeholder="Amount to Withdraw"
+                onChange={onChange} />
+                <br/>
+              </form>
               <button type="submit" disabled={!ready} className="btn btn-light" onClick={handleCreate}>Withdraw</button>
               </>
             ):(
