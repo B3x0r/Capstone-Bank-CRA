@@ -33,7 +33,7 @@ function AllData() {
               <td>{user.name}</td>
               <td>{user.email}</td>
               <td>{user.password}</td>
-              <td>{parseFloat(user.balance).toFixed(2)}</td>
+              <td>${parseFloat(user.balance).toFixed(2)}</td>
             </tr>
           ))}
         </tbody>

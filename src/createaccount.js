@@ -1,5 +1,4 @@
 import React from "react";
-import { validate } from "./utility";
 import { UserContext, Card } from "./context";
 
 function CreateAccount() {
@@ -10,10 +9,24 @@ function CreateAccount() {
   const [password, setPassword] = React.useState("");
   const { createAccount } = React.useContext(UserContext);
 
+  function validate(field, label) {
+    if (!field) {
+      setStatus("Error: " + label);
+      setTimeout(() => setStatus(""), 3000);
+      return false;
+    } else if (label=="password" && field.length < 8) {
+      setStatus("Error: Password must be at least 8 characters");
+      setTimeout(() => setStatus(""), 3000);
+      return false;
+    } else {
+      return true;
+    }
+  }
+
   function handleCreate() {
-    if (!validate(name, "name", setStatus)) return;
-    if (!validate(email, "email")) return;
-    if (!validate(password, "password")) return;
+    if (!validate(name, "name")) return false;
+    if (!validate(email, "email")) return false;
+    if (!validate(password, "password")) return false;
     createAccount(name, email, password);
     setShow(false);
   }

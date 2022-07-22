@@ -1,5 +1,4 @@
 import React from "react";
-import { validate } from "./utility";
 import { UserContext, Card } from "./context";
 
 function Login() {
@@ -8,20 +7,34 @@ function Login() {
   const { isLoggedin, setIsLoggedin, validateLogin } =
     React.useContext(UserContext);
 
-  const handleLogin = () => {
-    if (!validate(email, "email")) return <h5>Email not found.</h5>;
-    if (!validate(password, "password"))
-      return <h5>Password does not match our records.</h5>;
-
     validateLogin({ email, password })
-      .then(() => {
-        setEmail("");
-        setPassword("");
-      })
-      .catch(() => {
-        setIsLoggedin(false);
-      });
-  };
+    .then(() => {
+      setEmail("");
+      setPassword("");
+    })
+    .catch(() => {
+      setIsLoggedin(false);
+    });
+}
+
+    function validate(field, label, setStatus) {
+      if (!field) {
+        setStatus("Error: " + label);
+        setTimeout(() => setStatus(""), 3000);
+        return false;
+      } else if (label=="password" && field.length < 8) {
+        setStatus("Error: Password must be at least 8 characters");
+        setTimeout(() => setStatus(""), 3000);
+        return false;
+      } else {
+        return true;
+      }
+    }
+
+  const handleLogin = () => {
+    if (!validateLogin(email, "email")) return <h5>Email not found.</h5>;
+    if (!validateLogin(password, "password"))
+      return <h5>Password does not match our records.</h5>;
 
   const handleLogout = () => {
     setIsLoggedin(false);
