@@ -30,7 +30,6 @@ const UserProvider = ( {children} ) => {
     return apiLogin({ email, password })
       .then(async (result) => {
         const user = await result.json();
-        console.log(user);
         if (user.success !== false) {
           setUser(user);
           setBalance(user.balance)

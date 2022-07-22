@@ -10,7 +10,7 @@ function Logout() {
 
 	return (
 		<Card
-			bgcolor="info"
+			bgcolor="dark"
 			header="Log Out"
 			body={
 				<button type="submit"

@@ -23,10 +23,10 @@ function Withdraw(){
         setTimeout(() => setStatus(''),3000);
         return false;
       } else if(balance < subtract) {
-        setStatus('Error: transaction failed');
+        setStatus('Error: must have a larger balance than withdraw.');
         setTimeout(() => setStatus(''),3000);
         return false;
-      } else if( isNaN(subtract) ) {
+      } else if(isNaN(subtract) ) {
         setStatus('Error: must enter a numeric value only');
         setTimeout(() => setStatus(''),3000);
         return false;
@@ -37,13 +37,13 @@ function Withdraw(){
 
   function handleCreate(){
     if (!validate(subtract, 'Withdraw Amount')) {
-    return false;
+    return;
     }
     updateBalance(parseFloat(balance) - parseFloat(subtract));
     setShow(false);  
   }  
 
-  //input type="number" would be better for deposit, but then, you will not get a NaN error
+  //input type="number" would be better for dwithdraw, but then, you will not get a NaN error
   return (
     <Card
       bgcolor="dark"
@@ -60,10 +60,17 @@ function Withdraw(){
                 className="form-control"
                 id="subtract"
                 placeholder="Amount to Withdraw"
-                onChange={onChange} />
-                <br/>
+                onChange={onChange}
+                />
               </form>
-              <button type="submit" disabled={!ready} className="btn btn-light" onClick={handleCreate}>Withdraw</button>
+              <br/>
+              <button type="submit"
+              disabled={!ready}
+              className="btn btn-light"
+              onClick={handleCreate}
+              >
+                Withdraw
+              </button>
               </>
             ):(
               <>

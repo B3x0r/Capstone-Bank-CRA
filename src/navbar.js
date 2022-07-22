@@ -7,15 +7,15 @@ function NavBar() {
 
   React.useEffect(() => {
     if (window.location.hash.indexOf("Login") > -1) {
-      setTab("Login/")
+      setTab("login/")
     } else if(window.location.hash.indexOf("Create") > -1) {
-      setTab("CreateAccount/")
+      setTab("createAccount/")
     } else if(window.location.hash.indexOf("deposit") > -1) {
       setTab("deposit/")
     } else if(window.location.hash.indexOf("withdraw") > -1) {
       setTab("withdraw/")
     } else if(window.location.hash.indexOf("alldata") > -1) {
-      setTab("alldata/")
+      setTab("allData/")
     } else if(window.location.hash.indexOf("Logout") > -1) {
       setTab("Logout/")
     }

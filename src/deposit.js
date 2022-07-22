@@ -54,7 +54,8 @@ function Deposit(){
               <form>
               <input type="text"
                 className="form-control"
-                id="add" placeholder="Amount to Deposit"
+                id="add"
+                placeholder="Amount to Deposit"
                 onChange={onChange}
               />
               </form>

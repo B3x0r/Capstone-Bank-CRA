@@ -4,8 +4,27 @@ import { UserContext, Card } from "./context";
 function Login() {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
-  const { isLoggedin, setIsLoggedin, validateLogin } =
-    React.useContext(UserContext);
+  const { isLoggedin, setIsLoggedin, validateLogin } = React.useContext(UserContext);
+
+  function validate(field, label, setStatus) {
+    if (!field) {
+      setStatus("Error: " + label);
+      setTimeout(() => setStatus(""), 3000);
+      return false;
+    } else if (label == "password" && field.length < 8) {
+      setStatus("Error: Password must be at least 8 characters");
+      setTimeout(() => setStatus(""), 3000);
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  const handleLogin = () => {
+    if (!validate(email, "email")) return false;
+    if (!validate(password, "password")) return false;
+    if (!validateLogin(email, "email")) return <h5>Email not found.</h5>;
+    if (!validateLogin(password, "password")) return <h5>Password does not match our records.</h5>;
 
     validateLogin({ email, password })
     .then(() => {
@@ -15,30 +34,11 @@ function Login() {
     .catch(() => {
       setIsLoggedin(false);
     });
-}
-
-    function validate(field, label, setStatus) {
-      if (!field) {
-        setStatus("Error: " + label);
-        setTimeout(() => setStatus(""), 3000);
-        return false;
-      } else if (label=="password" && field.length < 8) {
-        setStatus("Error: Password must be at least 8 characters");
-        setTimeout(() => setStatus(""), 3000);
-        return false;
-      } else {
-        return true;
-      }
-    }
-
-  const handleLogin = () => {
-    if (!validateLogin(email, "email")) return <h5>Email not found.</h5>;
-    if (!validateLogin(password, "password"))
-      return <h5>Password does not match our records.</h5>;
-
-  const handleLogout = () => {
-    setIsLoggedin(false);
   };
+
+    const handleLogout = () => {
+      setIsLoggedin(false);
+    };
 
   return (
     <Card
@@ -48,7 +48,6 @@ function Login() {
         !isLoggedin ? (
           <>
             <form>
-              <br />
               Email
               <br />
               <input

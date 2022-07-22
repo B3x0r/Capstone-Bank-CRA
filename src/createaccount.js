@@ -81,6 +81,7 @@ function CreateAccount() {
                 value={password}
                 onChange={(e) => setPassword(e.currentTarget.value)}
               />
+            </form>
               <br />
               <button
                 type="submit"
@@ -90,7 +91,6 @@ function CreateAccount() {
               >
                 Create Account
               </button>
-            </form>
           </>
         ) : (
           <>

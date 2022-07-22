@@ -20,11 +20,11 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login/" element={<Login />} />
-            <Route path="/CreateAccount/" element={<CreateAccount />} />
+            <Route path="/createAccount/" element={<CreateAccount />} />
             <Route path="/deposit/" element={<Deposit />} />
             <Route path="/withdraw/" element={<Withdraw />} />
             <Route path="/logout/" element={<Logout />} />
-            <Route path="/alldata/" element={<AllData />} />
+            <Route path="/allData/" element={<AllData />} />
           </Routes>
         </div>
       </UserProvider>      
