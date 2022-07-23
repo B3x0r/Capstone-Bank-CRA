@@ -4,29 +4,29 @@ import { UserContext, Card } from "./context";
 function Login() {
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
-  const [status, setStatus] = React.useState('');
-  const { isLoggedin, setIsLoggedin, validateLogin } = React.useContext(UserContext);
+  const [status, setStatus] = React.useState("");
+  const { isLoggedin, setIsLoggedin, validateLogin } =
+    React.useContext(UserContext);
 
   const handleLogin = () => {
-
     validateLogin({ email, password })
-    .then((success) => {
-      setEmail("");
-      setPassword("");
-      console.log("isLoggedin in login", isLoggedin)
-      if (!success) {
-        setStatus ("Email and password does not match our records.");
-        setTimeout(() => setStatus(""), 3000);
-      }
-    })
-    .catch(() => {
-      setIsLoggedin(false);
-    });
+      .then((success) => {
+        setEmail("");
+        setPassword("");
+        console.log("isLoggedin in login", isLoggedin);
+        if (!success) {
+          setStatus("Email and password does not match our records.");
+          setTimeout(() => setStatus(""), 3000);
+        }
+      })
+      .catch(() => {
+        setIsLoggedin(false);
+      });
   };
 
-    const handleLogout = () => {
-      setIsLoggedin(false);
-    };
+  const handleLogout = () => {
+    setIsLoggedin(false);
+  };
 
   return (
     <Card

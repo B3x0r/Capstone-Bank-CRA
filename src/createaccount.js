@@ -14,7 +14,7 @@ function CreateAccount() {
       setStatus("Error: " + label);
       setTimeout(() => setStatus(""), 3000);
       return false;
-    } else if (label=="password" && field.length < 8) {
+    } else if (label == "password" && field.length < 8) {
       setStatus("Error: Password must be at least 8 characters");
       setTimeout(() => setStatus(""), 3000);
       return false;
@@ -47,7 +47,7 @@ function CreateAccount() {
         show ? (
           <>
             <form>
-            <br />
+              <br />
               Name
               <br />
               <input
@@ -82,22 +82,20 @@ function CreateAccount() {
                 onChange={(e) => setPassword(e.currentTarget.value)}
               />
             </form>
-              <br />
-              <button
-                type="submit"
-                className="btn btn-light"
-                disabled={!name.length && !email.length && !password.length}
-                onClick={handleCreate}
-              >
-                Create Account
-              </button>
+            <br />
+            <button
+              type="submit"
+              className="btn btn-light"
+              disabled={!name.length && !email.length && !password.length}
+              onClick={handleCreate}
+            >
+              Create Account
+            </button>
           </>
         ) : (
           <>
             <h5>Success</h5>
-            <button type="submit"
-              className="btn btn-light"
-              onClick={clearForm}>
+            <button type="submit" className="btn btn-light" onClick={clearForm}>
               Add another account
             </button>
           </>

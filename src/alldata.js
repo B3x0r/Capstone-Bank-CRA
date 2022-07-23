@@ -1,14 +1,11 @@
-import React from 'react';
-import { UserContext } from './context';
+import React from "react";
+import { UserContext } from "./context";
 
 function AllData() {
-  const {
-    userArray,
-    getAllData,
-  } = React.useContext(UserContext);
+  const { userArray, getAllData } = React.useContext(UserContext);
 
   React.useEffect(() => {
-    getAllData()
+    getAllData();
   }, []);
 
   return (
@@ -23,7 +20,6 @@ function AllData() {
             <th scope="col">Email Address</th>
             <th scope="col">Password</th>
             <th scope="col">Balance</th>
-
           </tr>
         </thead>
         <tbody>

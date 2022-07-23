@@ -1,0 +1,13 @@
+api:
+  image:api
+  ports:
+    -"3000:3000"
+  restart: always
+web:
+  build: .
+  ports:
+    - "8080:8080"
+  links:
+    -api
+  command: npm start
+  

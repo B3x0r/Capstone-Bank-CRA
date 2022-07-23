@@ -1,5 +1,5 @@
-import React from 'react';
-import { UserContext } from './context';
+import React from "react";
+import { UserContext } from "./context";
 
 function NavBar() {
   const [navTab, setTab] = React.useState("home");
@@ -7,20 +7,19 @@ function NavBar() {
 
   React.useEffect(() => {
     if (window.location.hash.indexOf("Login") > -1) {
-      setTab("login/")
-    } else if(window.location.hash.indexOf("Create") > -1) {
-      setTab("createAccount/")
-    } else if(window.location.hash.indexOf("deposit") > -1) {
-      setTab("deposit/")
-    } else if(window.location.hash.indexOf("withdraw") > -1) {
-      setTab("withdraw/")
-    } else if(window.location.hash.indexOf("alldata") > -1) {
-      setTab("allData/")
-    } else if(window.location.hash.indexOf("Logout") > -1) {
-      setTab("Logout/")
+      setTab("login/");
+    } else if (window.location.hash.indexOf("Create") > -1) {
+      setTab("createAccount/");
+    } else if (window.location.hash.indexOf("deposit") > -1) {
+      setTab("deposit/");
+    } else if (window.location.hash.indexOf("withdraw") > -1) {
+      setTab("withdraw/");
+    } else if (window.location.hash.indexOf("alldata") > -1) {
+      setTab("allData/");
+    } else if (window.location.hash.indexOf("Logout") > -1) {
+      setTab("Logout/");
     }
-  })
-  
+  });
 
   function activePage(page) {
     if (navTab === page) {
@@ -32,7 +31,10 @@ function NavBar() {
 
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light info" style={{padding: "20px"}}>
+      <nav
+        className="navbar navbar-expand-lg navbar-light info"
+        style={{ padding: "20px" }}
+      >
         <a
           className={"navbar-brand " + activePage("home")}
           data-toggle="tooltip"
@@ -58,100 +60,96 @@ function NavBar() {
 
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav">
-            {!isLoggedin ?
-            <>
-          <li className="nav-item ">
-              <a
-                className={"nav-link " + activePage("Login/")}
-                onClick={() => setTab("Login/")}
-                data-toggle="tooltip"
-                data-placement="bottom"
-                title="Log in here"
-                href="#/Login/"
-              >
-                Login<span className="tooltiptext"></span>
-              </a>
-            </li>
-            <li className="nav-item ">
-              <a
-                className={"nav-link " + activePage("CreateAccount/")}
-                onClick={() => setTab("CreateAccount/")}
-                data-toggle="tooltip"
-                data-placement="bottom"
-                title="Create account here"
-                href="#/CreateAccount/"
-              >
-                Create Account<span className="tooltiptext"></span>
-              </a>
-            </li>
-            </>
-            :
-            <>
-            <li className="nav-item">
-              <a
-                className={"nav-link " + activePage("deposit/")}
-                onClick={() => setTab("deposit/")}
-                data-toggle="tooltip"
-                data-placement="bottom"
-                title="Make Deposit Here"
-                href="#/deposit/"
-              >
-                Deposit<span className="tooltiptext"></span>
-              </a>
-            </li>
-            <li className="nav-item">
-              <a
-                className={"nav-link " + activePage("withdraw/")}
-                onClick={() => setTab("withdraw/")}
-                data-toggle="tooltip"
-                data-placement="bottom"
-                title="Make Withdraw Here"
-                href="#/withdraw/"
-              >
-                Withdraw<span className="tooltiptext"></span>
-              </a>
-            </li>
-            <li className="nav-item">
-              <a
-                className={"nav-link " + activePage("alldata/")}
-                onClick={() => setTab("alldata/")}
-                data-toggle="tooltip"
-                data-placement="bottom"
-                title="All Stored Information"
-                href="#/alldata/"
-              >
-                AllData<span className="tooltiptext"></span>
-              </a>
-            </li>            
-          <li className="nav-item ">
-              <a
-                className={"nav-link " + activePage("Logout/")}
-                onClick={() => setTab("Logout/")}
-                data-toggle="tooltip"
-                data-placement="bottom"
-                title="Log Out here"
-                href="#/Logout/"
-              >
-                Log Out<span className="tooltiptext"></span>
-              </a>
-            </li>
-            </>
-            }
+            {!isLoggedin ? (
+              <>
+                <li className="nav-item ">
+                  <a
+                    className={"nav-link " + activePage("Login/")}
+                    onClick={() => setTab("Login/")}
+                    data-toggle="tooltip"
+                    data-placement="bottom"
+                    title="Log in here"
+                    href="#/Login/"
+                  >
+                    Login<span className="tooltiptext"></span>
+                  </a>
+                </li>
+                <li className="nav-item ">
+                  <a
+                    className={"nav-link " + activePage("CreateAccount/")}
+                    onClick={() => setTab("CreateAccount/")}
+                    data-toggle="tooltip"
+                    data-placement="bottom"
+                    title="Create account here"
+                    href="#/CreateAccount/"
+                  >
+                    Create Account<span className="tooltiptext"></span>
+                  </a>
+                </li>
+              </>
+            ) : (
+              <>
+                <li className="nav-item">
+                  <a
+                    className={"nav-link " + activePage("deposit/")}
+                    onClick={() => setTab("deposit/")}
+                    data-toggle="tooltip"
+                    data-placement="bottom"
+                    title="Make Deposit Here"
+                    href="#/deposit/"
+                  >
+                    Deposit<span className="tooltiptext"></span>
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a
+                    className={"nav-link " + activePage("withdraw/")}
+                    onClick={() => setTab("withdraw/")}
+                    data-toggle="tooltip"
+                    data-placement="bottom"
+                    title="Make Withdraw Here"
+                    href="#/withdraw/"
+                  >
+                    Withdraw<span className="tooltiptext"></span>
+                  </a>
+                </li>
+                <li className="nav-item">
+                  <a
+                    className={"nav-link " + activePage("alldata/")}
+                    onClick={() => setTab("alldata/")}
+                    data-toggle="tooltip"
+                    data-placement="bottom"
+                    title="All Stored Information"
+                    href="#/alldata/"
+                  >
+                    AllData<span className="tooltiptext"></span>
+                  </a>
+                </li>
+                <li className="nav-item ">
+                  <a
+                    className={"nav-link " + activePage("Logout/")}
+                    onClick={() => setTab("Logout/")}
+                    data-toggle="tooltip"
+                    data-placement="bottom"
+                    title="Log Out here"
+                    href="#/Logout/"
+                  >
+                    Log Out<span className="tooltiptext"></span>
+                  </a>
+                </li>
+              </>
+            )}
           </ul>
         </div>
-            {isLoggedin ?
-              <>
-                <span className="navbar-text">
-                  Welcome {user.name}!
-                </span>
-              </>
-              :
-              <>
-                <span className="navbar-text">
-                  Welcome Visitor!
-                </span>
-              </>
-            }
+        {isLoggedin ? (
+          <>
+            <span className="navbar-text">Welcome {user.name}!</span>
+          </>
+        ) : (
+          <>
+            <span className="navbar-text">Welcome Visitor!</span>
+          </>
+        )}
       </nav>
     </>
   );

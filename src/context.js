@@ -1,14 +1,9 @@
 import React from "react";
-import {
-  apiLogin,
-  apiCreateAccount,
-  apiBalance,
-  apiAllData,
-} from "./dal";
+import { apiLogin, apiCreateAccount, apiBalance, apiAllData } from "./dal";
 
 const UserContext = React.createContext();
 
-const UserProvider = ( {children} ) => {
+const UserProvider = ({ children }) => {
   const [user, setUser] = React.useState({});
   const [isLoggedin, setIsLoggedin] = React.useState(false);
   const [balance, setBalance] = React.useState(0);
@@ -32,12 +27,12 @@ const UserProvider = ( {children} ) => {
         const user = await result.json();
         if (user.success !== false) {
           setUser(user);
-          setBalance(user.balance)
+          setBalance(user.balance);
           setIsLoggedin(true);
-          console.log("isLoggedin in context", isLoggedin)
-          return true
+          console.log("isLoggedin in context", isLoggedin);
+          return true;
         }
-          return false
+        return false;
       })
       .catch(() => setIsLoggedin(false));
   };
@@ -46,21 +41,20 @@ const UserProvider = ( {children} ) => {
     setUserArray(userArray);
   };
   const updateBalance = (balance) => {
-    return apiBalance({ email: user.email, balance})
-    .then(() => {
-      setBalance(balance);
-      }
-    )
-    .catch(err => console.error(err))      
-    };
-    const getAllData = () => {
-      return apiAllData()
-      .then(async result => {
-        const user = await result.json();
-        setUserArray(user)
+    return apiBalance({ email: user.email, balance })
+      .then(() => {
+        setBalance(balance);
       })
-      .catch(err => console.error(err))
-    };
+      .catch((err) => console.error(err));
+  };
+  const getAllData = () => {
+    return apiAllData()
+      .then(async (result) => {
+        const user = await result.json();
+        setUserArray(user);
+      })
+      .catch((err) => console.error(err));
+  };
   return (
     <UserContext.Provider
       value={{
@@ -75,7 +69,7 @@ const UserProvider = ( {children} ) => {
         userArray,
       }}
     >
-    {children}
+      {children}
     </UserContext.Provider>
   );
 };
@@ -94,7 +88,7 @@ function Card(props) {
         {props.title && <h4 className="card-title">{props.title}</h4>}
         {props.text && <p className="card-text">{props.text}</p>}
         {props.body}
-        {props.status && <div id='createStatus'>{props.status}</div>}
+        {props.status && <div id="createStatus">{props.status}</div>}
       </div>
     </div>
   );

@@ -1,22 +1,22 @@
-import './App.css';
-import React from 'react';
+import "./App.css";
+import React from "react";
 import { HashRouter, Routes, Route } from "react-router-dom";
-import Home from './home';
-import Login from './login';
-import CreateAccount from './createaccount';
-import Deposit from './deposit';
-import Withdraw from './withdraw';
-import Logout from './logout';
-import AllData from './alldata';
-import NavBar from './navbar';
-import { UserProvider } from './context';
+import Home from "./home";
+import Login from "./login";
+import CreateAccount from "./createaccount";
+import Deposit from "./deposit";
+import Withdraw from "./withdraw";
+import Logout from "./logout";
+import AllData from "./alldata";
+import NavBar from "./navbar";
+import { UserProvider } from "./context";
 
 function App() {
   return (
     <HashRouter>
       <UserProvider>
-      <NavBar/>
-        <div className="container" style={{padding: "20px"}}>
+        <NavBar />
+        <div className="container" style={{ padding: "20px" }}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login/" element={<Login />} />
@@ -27,7 +27,7 @@ function App() {
             <Route path="/allData/" element={<AllData />} />
           </Routes>
         </div>
-      </UserProvider>      
+      </UserProvider>
     </HashRouter>
   );
 }

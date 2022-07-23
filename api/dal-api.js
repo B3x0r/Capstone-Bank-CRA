@@ -14,16 +14,16 @@ MongoClient.connect(url, {}, function (err, client) {
 function createUser({ name, email, password }) {
   return new Promise((resolve, reject) =>
     db
-    .collection("users")
-    .insertOne({
-      _id: email,
-      name,
-      email,
-      password,
-      balance: 0,
-    })
-    .then(result => resolve(result))
-    .catch(err => reject(err))
+      .collection("users")
+      .insertOne({
+        _id: email,
+        name,
+        email,
+        password,
+        balance: 0,
+      })
+      .then((result) => resolve(result))
+      .catch((err) => reject(err))
   );
 }
 function verifyUser({ email, password }) {
@@ -46,35 +46,33 @@ function verifyUser({ email, password }) {
   );
 }
 //balance
-function updateBalance ({email, balance}) {
-  return new Promise((resolve, reject) =>{
-    db.
-      collection("users").updateOne(
+function updateBalance({ email, balance }) {
+  return new Promise((resolve, reject) => {
+    db.collection("users")
+      .updateOne(
         { email: email },
         {
-          $set: {balance: balance}
+          $set: { balance: balance },
         }
       )
-    .then((result) => {
+      .then((result) => {
         resolve(result);
-      }
-    )
-      .catch(reject)   
-})
+      })
+      .catch(reject);
+  });
 }
 
 //all users data
 function all() {
   return new Promise((resolve, reject) => {
-    db
-      .collection("users")
+    db.collection("users")
       .find({})
       .toArray()
       .then((result) => {
-          resolve(result);
+        resolve(result);
       })
-      .catch(reject)
-    })
-};
+      .catch(reject);
+  });
+}
 
 module.exports = { createUser, verifyUser, updateBalance, all };

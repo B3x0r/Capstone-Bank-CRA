@@ -13,8 +13,8 @@ app.get("/account/create/:name/:email/:password", function (req, res) {
       res.send(result);
     })
     .catch((err) => {
-    res.send({ success: false })
-  });
+      res.send({ success: false });
+    });
 });
 
 //login user
@@ -44,13 +44,13 @@ app.get("/account/balance/:email/:balance/", function (req, res) {
 // all accounts
 app.get("/account/all", function (req, res) {
   dal
-  .all()
-  .then((docs) => {
-    res.send(docs);
-  })
-  .catch(() => {
-    res.send({ success: false });
-  });
+    .all()
+    .then((docs) => {
+      res.send(docs);
+    })
+    .catch(() => {
+      res.send({ success: false });
+    });
 });
 
 var port = 3000;

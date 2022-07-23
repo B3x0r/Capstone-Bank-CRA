@@ -1,45 +1,6 @@
-/* .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
-
 body {
   margin: 0;
-  background: rgb(239,222,205);
+  background: rgb(239, 222, 205);
   font-family: Helvetica, sans-serif;
   display: flex;
   flex-direction: column;
@@ -48,7 +9,7 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 
@@ -56,25 +17,25 @@ code {
   text-align: center;
 }
 
-:root{
-  background: rgb(239,222,205);
+:root {
+  background: rgb(239, 222, 205);
 }
 
 /* navbar color */
 .navbar {
-  background-color: rgb(125,116,107);
+  background-color: rgb(125, 116, 107);
   display: flex;
   flex-direction: row;
 }
 
 /* mouse over link navbar navbar-expand-lg navbar-light info*/
 .navbar a:hover {
-  background-color: rgb(98,146,179);
+  background-color: rgb(98, 146, 179);
   color: white !important;
 }
 
 .navbar a.active {
-  background-color: rgb(73,109,133);
+  background-color: rgb(73, 109, 133);
 }
 
 .tooltip .tooltiptext {
@@ -87,23 +48,23 @@ code {
 
 .caption1 {
   font-style: italic;
-  }
+}
 
 .caption3 {
   color: rgb(128, 143, 133);
 }
 
 .h1 {
-  color: rgb(216, 221, 239); 
+  color: rgb(216, 221, 239);
 }
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-    /* display: none; <- Crashes Chrome on hover */
-    -webkit-appearance: none;
-    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
 }
 
-input[type=number] {
-    -moz-appearance:textfield; /* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield; /* Firefox */
 }
