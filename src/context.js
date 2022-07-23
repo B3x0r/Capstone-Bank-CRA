@@ -34,9 +34,10 @@ const UserProvider = ( {children} ) => {
           setUser(user);
           setBalance(user.balance)
           setIsLoggedin(true);
-        } else {
-          setIsLoggedin(false);
+          console.log("isLoggedin in context", isLoggedin)
+          return true
         }
+          return false
       })
       .catch(() => setIsLoggedin(false));
   };

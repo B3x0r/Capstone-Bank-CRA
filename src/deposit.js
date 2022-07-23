@@ -52,7 +52,7 @@ function Deposit(){
               <h5>Deposit</h5>
               <br/>
               <form>
-              <input type="text"
+              <input type="number"
                 className="form-control"
                 id="add"
                 placeholder="Amount to Deposit"

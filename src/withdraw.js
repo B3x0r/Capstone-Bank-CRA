@@ -18,12 +18,13 @@ function Withdraw(){
   }
 
   function validate(){
-      if (subtract<0) {
+      if (subtract<=0) {
         setStatus('Error: must enter positive numbers only');
         setTimeout(() => setStatus(''),3000);
         return false;
       } else if(balance < subtract) {
         setStatus('Error: must have a larger balance than withdraw.');
+        console.log(balance);
         setTimeout(() => setStatus(''),3000);
         return false;
       } else if(isNaN(subtract) ) {
@@ -56,7 +57,7 @@ function Withdraw(){
               <h5>Withdraw</h5>
               <br/>
               <form>
-                <input type="text"
+                <input type="number"
                 className="form-control"
                 id="subtract"
                 placeholder="Amount to Withdraw"

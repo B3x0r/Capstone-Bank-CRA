@@ -6,7 +6,8 @@ function Logout() {
 
 	const handleLogout = () => {
 		setIsLoggedin(false);
-	};
+		window.location.href = "/#";
+		};
 
 	return (
 		<Card
