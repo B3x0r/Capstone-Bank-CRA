@@ -3,8 +3,12 @@ ENV NODE_ENV=production
 
 WORKDIR /src
 
-RUN npm install --production
-
 COPY . .
+
+RUN rm -rf api
+RUN npm install --omit=dev
+RUN npm run build
+
+EXPOSE 8080
 
 CMD [ "node", "app.js" ]
