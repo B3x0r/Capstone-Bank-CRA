@@ -18,6 +18,9 @@ function CreateAccount() {
       setStatus("Error: Password must be at least 8 characters");
       setTimeout(() => setStatus(""), 3000);
       return false;
+    } else if (label=="email" && !field.match(/.+@.+\..+/g)) {
+      setStatus("Error: Email is not valid");
+      setTimeout(() => setStatus(""), 3000);
     } else {
       return true;
     }
@@ -63,8 +66,9 @@ function CreateAccount() {
               <br />
               <input
                 type="email"
-                className="form-control"
                 id="email"
+                pattern=".+@.+\..+"
+                className="form-control"
                 placeholder="Enter email"
                 value={email}
                 onChange={(e) => setEmail(e.currentTarget.value)}

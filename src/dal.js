@@ -1,16 +1,14 @@
-const apiHost = "http://localhost:3000";
-
 const apiLogin = ({email, password}) => {
-  return fetch(`${apiHost}/account/login/${email}/${password}`);
+  return fetch(`/account/login/${email}/${password}`);
 };
 const apiCreateAccount = ({name, email, password}) => {
-  return fetch(`${apiHost}/account/create/${name}/${email}/${password}`);
+  return fetch(`/account/create/${name}/${email}/${password}`);
 };
 const apiBalance = ({email, balance}) => {
-  return fetch(`${apiHost}/account/balance/${email}/${balance}`);
+  return fetch(`/account/balance/${email}/${balance}`);
 };
 const apiAllData = () => {
-  return fetch(`${apiHost}/account/all`);
+  return fetch(`/account/all`);
 };
 
 export {
