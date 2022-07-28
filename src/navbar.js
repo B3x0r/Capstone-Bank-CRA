@@ -7,9 +7,9 @@ function NavBar() {
 
   React.useEffect(() => {
     if (window.location.hash.indexOf("Login") > -1) {
-      setTab("login/")
+      setTab("Login/")
     } else if(window.location.hash.indexOf("Create") > -1) {
-      setTab("createAccount/")
+      setTab("CreateAccount/")
     } else if(window.location.hash.indexOf("Home") > -1) {
         setTab("#")
     } else if(window.location.hash.indexOf("deposit") > -1) {
