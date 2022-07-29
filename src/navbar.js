@@ -10,8 +10,6 @@ function NavBar() {
       setTab("Login/")
     } else if(window.location.hash.indexOf("Create") > -1) {
       setTab("CreateAccount/")
-    } else if(window.location.hash.indexOf("Home") > -1) {
-        setTab("#")
     } else if(window.location.hash.indexOf("deposit") > -1) {
       setTab("deposit/")
     } else if(window.location.hash.indexOf("withdraw") > -1) {
@@ -20,7 +18,8 @@ function NavBar() {
       setTab("alldata/")
     } else if(window.location.hash.indexOf("Logout") > -1) {
       setTab("Logout/")
-    }
+    } else {
+      setTab("home")
   })
   
 
