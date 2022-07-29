@@ -20,8 +20,8 @@ function NavBar() {
       setTab("Logout/")
     } else {
       setTab("home")
-  })
-  
+    }
+  });
 
   function activePage(page) {
     if (navTab === page) {
